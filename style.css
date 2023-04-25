@@ -1,3 +1,10 @@
+.visible{
+visibility: visible;
+}
+.not-visible{
+  visibility: invisible;
+  }
+
 body {
     margin: 0;
     padding: 0;

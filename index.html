@@ -11,12 +11,10 @@
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
     
-   <link rel="stylesheet" href="style.css" />
-
    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
    crossorigin=""></script>
-
+   <script type="text/javascript" src="canvasjs.min.js"></script>
 
     
 </head>
@@ -128,11 +126,11 @@
                 <div class="radio-inputs">
                     <label class="radio">
                         <input type="radio" name="radio" checked="">
-                        <span class="name">Map</span>
+                        <span id="mapbtn" class="name" >Map</span>
                     </label>
                     <label class="radio">
                         <input type="radio" name="radio">
-                        <span class="name">Graph</span>
+                        <span id="mapbtn" class="name">Graph</span>
                     </label>
 
 
@@ -144,11 +142,11 @@
                 <div class="lds-ellipsis" id="data_load_animation">
 
                 </div>
-                <div id="chartContainer" class="box"></div>
+                <div id="chartContainer" class="box" style="height: 500px; width: 50%;"></div>
             </div>
         </div>
     </main>
-    
+    <script src="./script.js"></script>
 </body>
 
 </html>
