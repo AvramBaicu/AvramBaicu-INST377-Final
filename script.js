@@ -1,11 +1,11 @@
 function initMap() {
-  const carto = L.map("map").setView([41.850033, -97.6500523], 4);
+  const theMap = L.map("map").setView([38.850033, -95.6500523], 4);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
+    maxZoom: 16,
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  }).addTo(carto);
-  return carto;
+  }).addTo(theMap);
+  return theMap;
 }
 // function initGraph() {
 //   const chart = new CanvasJS.Chart("chartContainer", {});

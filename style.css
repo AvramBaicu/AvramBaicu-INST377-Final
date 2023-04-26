@@ -75,14 +75,15 @@ body {
     margin: 10px;
     height: 100%;
     width: 4px;
-    background-color: #000000;
+    background-color: #b9a9a9;
     margin: 0 20px;
   }
   
 #map, #chartContainer{
-    width: 35rem;
-    height: 300px;
+    width: 40rem;
+    height: 25rem;
     margin-bottom: 1rem;
+    border-radius: .5rem;
   }
   .radio-inputs {
     position: relative;
@@ -144,7 +145,6 @@ body {
   }
   #state-select{
     border-radius: 0.5rem;
-
   }
   .form .radio-inputs {
     display: flex;
@@ -157,6 +157,7 @@ body {
   .form .radio-inputs .radio {
     display: flex;
     margin: 0.5rem;
+    font-family: 'Roboto', sans-serif
   }
   
   .form .radio-inputs .radio input[type="radio"] {
@@ -196,6 +197,7 @@ body {
     color: rgba(51, 65, 85, 1);
     transition: all .15s ease-in-out;
     text-transform: uppercase;
+    font-family: 'Roboto', sans-serif
 
   }
   
@@ -205,6 +207,20 @@ body {
     font-weight: 600;
     text-transform: uppercase;
   } 
+  .goback{
+    background-color: #4545d8;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    padding: .5rem 1rem;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 3rem auto ;
+  }
 
   .visible{
 display: block;
@@ -212,13 +228,55 @@ display: block;
 .hidden{
   display: none !important;
   }
-
-@media only screen and (max-width: 768px) {
+  
+@media screen  and (max-width:1136px){
+  #map, #chartContainer{
+    width: 30rem;
+    height: 25rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+  }
+}
+@media screen and (max-width: 995px) {
+  .form{
+    width: 70%;
+  }
+  .left_section {
+     max-width: 100%; 
+}
     .navbar-brand {
         font-size: 20px;
     }
+    .navbar{
+      width: 100%;
+    }
 
+    text {
+      margin-left: 1rem;
+    }
+    .container{
+      display: inline;
+    }
+    .box{
+      margin: 1.5rem;
+    }
     .nav-link {
         font-size: 16px;
     }
+    #map, #chartContainer{
+      width: 100%;
+      height: 20rem;
+      margin-bottom: 1rem;
+      border-radius: .5rem;
+      display: none;
+    }
+}
+@media screen and (max-width: 390px) {
+  #map, #chartContainer{
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    display: none;
+  }
 }
