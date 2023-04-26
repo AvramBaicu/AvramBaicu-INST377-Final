@@ -1,9 +1,3 @@
-.visible{
-visibility: visible;
-}
-.not-visible{
-  visibility: invisible;
-  }
 
 body {
     margin: 0;
@@ -18,7 +12,12 @@ body {
     padding-bottom: 3%;
     font-family: 'Montserrat', sans-serif;
 }
-
+.about-paragraph{
+  padding: 5% 22% 0% 25%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
 .navbar {
     background-color: black;
     display: flex;
@@ -64,7 +63,7 @@ body {
     max-width: 25rem;
   }
  .box {
-    background-color: rgba(180, 29, 29, 0.4);
+    background-color: rgba(255, 255, 255, 0.183);
     border-radius: 4px;
   
     width: fit-content;
@@ -80,7 +79,7 @@ body {
     margin: 0 20px;
   }
   
-#map{
+#map, #chartContainer{
     width: 35rem;
     height: 300px;
     margin-bottom: 1rem;
@@ -182,7 +181,10 @@ body {
   .radio-inputs .radio input {
     display: none;
   }
-  
+  .chartContainer{
+    width: 500px;
+    height: 500px;
+  }
   .radio-inputs .radio .name {
     display: flex;
     cursor: pointer;
@@ -197,12 +199,20 @@ body {
 
   }
   
-  .radio-inputs .radio input:checked + .name {
+  .radio-inputs .radio input:checked + .name  {
     background-color: #4545d8;
     color: #ffffff;
     font-weight: 600;
     text-transform: uppercase;
+  } 
+
+  .visible{
+display: block;
+}
+.hidden{
+  display: none !important;
   }
+
 @media only screen and (max-width: 768px) {
     .navbar-brand {
         font-size: 20px;

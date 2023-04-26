@@ -1,152 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minority Demographics</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
-    
-   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-   crossorigin=""></script>
-   <script type="text/javascript" src="canvasjs.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
 
-    
-</head>
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
+<!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+            
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" type ="module"></script> -->
+    <script type="text/javascript"></script>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar">
-            <a href="index.html" class="navbar-brand">Minority Demographics</a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <a href="index.html" class="navbar-brand">Minority Demographics</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="left_section">
-                
-                <h3 class="text">Looking to create events for a minority in
-                    your city? We can help you with the process.</h3>
-                <div>
-                    <p class="text">Choose a state to find data.</p>
-                </div>
-                <form class="form">
+      <div class="container">
+        <div class="left_section">
+          <h3 class="text">
+            Looking to create events for a minority in your city? We can help
+            you with the process.
+          </h3>
+          
+  <!-- <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Test 1</a></li>
+        <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+        <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+        <li class="tab col s3"><a href="#test4">Test 4</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12">Test 1</div>
+    <div id="test2" class="col s12">Test 2</div>
+    <div id="test3" class="col s12">Test 3</div>
+    <div id="test4" class="col s12">Test 4</div>
+  </div>
+         -->
+          <div>
+            <p class="text">Choose a state to find data.</p>
+          </div>
+          <form class="form">
+            <select id="state-select" name="state">
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </form>
 
-                    <select id="state-select" name="state">
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District of Columbia</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                    </select>
-                </form>
+          <div></div>
+          <div>
+            <p class="text">Choose how you want to see your data...</p>
+          </div>
+          <div id="group1" class="radio-inputs">
+            <label class="radio">
+              <input type="radio" name="radio1" checked="" />
+              <span class="name">By County</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="radio1" />
+              <span class="name">By Zip code</span>
+            </label>
+          </div>
 
-                <div>
-
-                </div>
-                <div>
-                    <p class="text">Choose how you want to see your data...</p>
-                </div>
-                <div class="radio-inputs">
-                    <label class="radio">
-                        <input type="radio" name="radio" checked="">
-                        <span class="name">By County</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="radio">
-                        <span class="name">By Zip code</span>
-                    </label>
-                </div>
-
-                <div>
-                    <p class="text">Choose Demographics...</p>
-                </div>
-
-            </div>
-              <div class="line"></div>
-
-            <div class="right_section">
-
-
-                <div class="radio-inputs">
-                    <label class="radio">
-                        <input type="radio" name="radio" checked="">
-                        <span id="mapbtn" class="name" >Map</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="radio">
-                        <span id="mapbtn" class="name">Graph</span>
-                    </label>
-
-
-
-                </div>
-
-                <div id="map" class="box"></div>
-
-                <div class="lds-ellipsis" id="data_load_animation">
-
-                </div>
-                <div id="chartContainer" class="box" style="height: 500px; width: 50%;"></div>
-            </div>
+          <div>
+            <p class="text">Choose Demographics...</p>
+          </div>
         </div>
+        <div class="line"></div>
+
+        <div class="right_section">
+          <div id="group2" class="radio-inputs">
+            <label class="radio">
+              <input type="radio" name="radio" checked="" />
+              <span id="mapbtn" class="name">Map</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="radio" />
+              <span id="graphbtn" class="name">Graph</span>
+            </label>
+          </div>
+
+          <div id="map" class="box"></div>
+
+          <div id="chartContainer" class="box hidden ">
+            <canvas id="chart"></canvas>
+          </div>
+
+          <!-- <div id="chartContainer" class="box hidden" style="height: 500px; width: 50%;"></div> -->
+          <div>
+            <p class="text">Choose data you'd like to see...</p>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="./script.js"></script>
-</body>
-
+  </body>
 </html>
