@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- added image onto my Icon it will show next to my title. http://clipart-library.com/clipart/891920.htm -->
+    <link
+      rel="icon"
+      href="/AvramBaicu-INST377-Final/People Together.png"
+      type="png"
+    />
     <title>Minority Demographics</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -19,10 +25,10 @@
       crossorigin=""
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
-<!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-            
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" type ="module"></script> -->
     <script type="text/javascript"></script>
   </head>
@@ -45,8 +51,8 @@
             Looking to create events for a minority in your city? We can help
             you with the process.
           </h3>
-          
-  <!-- <div class="row">
+
+          <!-- <div class="row">
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s3"><a href="#test1">Test 1</a></li>
@@ -65,7 +71,8 @@
             <p class="text">Choose a state to find data.</p>
           </div>
           <form class="form">
-            <select id="state-select" name="state">
+            <select id="state_dropdown" name="state">
+              <option value="" selected disabled>Choose a State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -120,8 +127,7 @@
             </select>
           </form>
 
-          <div></div>
-          <div>
+          <!-- <div>
             <p class="text">Choose how you want to see your data...</p>
           </div>
           <div id="group1" class="radio-inputs">
@@ -133,14 +139,85 @@
               <input type="radio" name="radio1" />
               <span class="name">By Zip code</span>
             </label>
-          </div>
+          </div> -->
 
           <div>
-            <p class="text">Choose Demographics...</p>
+            <div>
+              <p class="text">Choose Demographics...</p>
+            </div>
+            <div class="text">
+              <label>
+                <input
+                  type="checkbox"
+                  name="white"
+                  value="totalWhite"
+                  checked
+                  class="checkDemographics"
+                />
+                White
+              </label>
+              <br />
+              <label>
+                <input
+                  type="checkbox"
+                  name="black"
+                  value="totalBlackOrAfricanAmerican"
+                  checked
+                  class="checkDemographics"
+                />
+                Black or African American
+              </label>
+              <br />
+              <label>
+                <input
+                  type="checkbox"
+                  name="americanIndian"
+                  value="totalAmericanIndian"
+                  checked
+                  class="checkDemographics"
+                />
+                American Indian or Alaska Native
+              </label>
+              <br />
+              <label>
+                <input
+                  type="checkbox"
+                  name="asian"
+                  value="totalAsian"
+                  checked
+                  class="checkDemographics"
+                />
+                Asian
+              </label>
+              <br />
+              <!-- <label>
+              <input type="checkbox" name="hawaiian" value="totalHawaiian" checked class="checkDemographics">
+              Native Hawaiian or Other Pacific Islander
+            </label>
+            <br> -->
+              <label>
+                <input
+                  type="checkbox"
+                  name="hispanic"
+                  value="totalHispanic"
+                  checked
+                  class="checkDemographics"
+                />
+                Hispanic or Latino
+              </label>
+              <!-- <br>
+            <label>
+              <input type="checkbox" name="other" value="totalOther" checked class="checkDemographics">
+              Other
+            </label>
+            <br>
+            <label>
+              <input type="checkbox" name="twoOrMore" value="totalTwoOrMore" checked class="checkDemographics">
+              Two or More Races
+            </label>             -->
+            </div>
           </div>
         </div>
-        <div class="line"></div>
-
         <div class="right_section">
           <div id="group2" class="radio-inputs">
             <label class="radio">
@@ -153,15 +230,10 @@
             </label>
           </div>
 
-          <div id="map" class="box"></div>
+          <div id="map" class="box visible"></div>
 
-          <div id="chartContainer" class="box hidden ">
+          <div id="chartContainer" class="box hidden">
             <canvas id="chart"></canvas>
-          </div>
-
-          <!-- <div id="chartContainer" class="box hidden" style="height: 500px; width: 50%;"></div> -->
-          <div>
-            <p class="text">Choose data you'd like to see...</p>
           </div>
         </div>
       </div>
