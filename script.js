@@ -48,8 +48,8 @@ function selectedDemographics(checkboxes){
   });
   return selectedDemographics;
 };
+const map = initMap();
 async function mainEvent() {
-  const map = initMap();
   myChart = initChart();//Plain original chart that displays random data
   checkboxes = document.querySelectorAll('.checkDemographics');
 
@@ -59,7 +59,7 @@ async function mainEvent() {
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', async () => {
       if (myChart)
-      myChart.destroy()
+      myChart.destroy();
       myChart = initChart();//Plain original chart that displays random data
       const selected = getselectedStateWDropdown();
       let ChosenState = filterState(theData, selected, myChart);
@@ -99,7 +99,13 @@ async function mainEvent() {
       console.error("Error retrieving data:", error);
     }
   };
-  const theData = await getData();
+
+  const storedData = await getData();
+  localStorage.setItem('storedData',JSON.stringify(storedData));
+  const parsedData = localStorage.getItem('storedData');
+  let theData = JSON.parse(parsedData)
+  console.log(theData);
+
 //filter 
   async function filterState(data, selectedStateWDropdown, myChart) {
     //original chart info
@@ -164,11 +170,8 @@ async function mainEvent() {
             city = theData[i].fields.city
         }
     }
-    console.log("idk",city,fullSelected);
 
     getCoordinates(city, fullSelected).then( result => {
-       console.log("bruh",result);
-       console.log("????????",raceData.indexOf(Math.min(...raceData)));
        x=result;
        if (layer != null){
         layer.remove();
@@ -185,7 +188,7 @@ async function mainEvent() {
     const response = await fetch(`https://api.api-ninjas.com/v1/geocoding?city=${city}&country=US`, {
       method: "GET",
       headers: {
-        'X-Api-Key': '****************************************',
+        'X-Api-Key': '********************************',
         "Content-Type": "application/json",
       }
     });
@@ -251,6 +254,27 @@ async function mainEvent() {
 
     return allRacesSelected;
   };
+  const refreshBtn = document.getElementById("refreshBtn");
+
+  refreshBtn.addEventListener("click", async () => {
+  let layer = initLayer();
+
+  localStorage.clear();
+  const storedData = await getData();
+  localStorage.setItem('storedData',JSON.stringify(storedData));
+  const parsedData = localStorage.getItem('storedData');
+  let theData = JSON.parse(parsedData);
+  console.log(theData);
+  myChart.destroy();
+  dropdown.selectedIndex = 0;
+  if (layer) {
+    layer.remove();
+  }
+  layer = L.marker([38.850033, -95.6500523], 4).addTo(map);
+  
+  mainEvent();
+  
+  });
 }
 document.addEventListener("DOMContentLoaded", async () => mainEvent());
 
