@@ -1,3 +1,6 @@
+// require('dotenv').config();
+// console.log(process.env);
+// for private API above
 myChart = null;
 raceData = null;
 x=null;
@@ -187,7 +190,8 @@ async function mainEvent() {
     const response = await fetch(`https://api.api-ninjas.com/v1/geocoding?city=${city}&country=US`, {
       method: "GET",
       headers: {
-        'X-Api-Key': '*****************************************',
+        'X-Api-Key': '7xOJR1t5VlUkJVxZnc/NTA==Iu1AB0JiBshtqMDe',
+        //'X-Api-Key': process.env.API_KEY,
         "Content-Type": "application/json",
       }
     });
