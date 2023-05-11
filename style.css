@@ -12,13 +12,12 @@ body {
   margin: 1.5rem;
   font-family: "Montserrat", sans-serif;
 }
-
 .navbar {
   background-color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 17px;
+  padding: 1rem 2rem;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -159,7 +158,7 @@ body {
   margin-top: 1rem;
 }
 
-.form .radio-inputs .radio {
+.form .radio-inputs .radio, #refreshBtn{
   display: flex;
   margin: 0.5rem;
   font-family: "Roboto", sans-serif;
@@ -169,7 +168,7 @@ body {
   display: none;
 }
 
-.form .radio-inputs .radio label {
+.form .radio-inputs .radio label,#refreshBtn {
   cursor: pointer;
   margin-left: 0.5rem;
 }
@@ -179,7 +178,7 @@ body {
   font-weight: bold;
 }
 
-.radio-inputs .radio {
+.radio-inputs .radio, #refreshBtn{
   flex: 1 1 auto;
   text-align: center;
 }
@@ -193,7 +192,7 @@ body {
   height: 500px;
 }
 
-.radio-inputs .radio .name {
+.radio-inputs .radio .name, #refreshBtn {
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -218,7 +217,7 @@ body {
   background-color: #4545d8;
 }
 
-.goback {
+.goback,#refreshBtn {
   background-color: #4545d8;
   color: #ffffff;
   border: none;
@@ -275,6 +274,26 @@ body {
 }
 
 @media screen and (max-width: 995px) {
+  .navbar {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  main {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .map-container, .navbar {
+    width: 100%;
+  }
   .form {
     width: 70%;
   }
@@ -298,15 +317,15 @@ body {
   .nav-link {
     font-size: 16px;
   }
-
   #map,
   #chartContainer {
-    width: 96.5%;
+    width: 100%;
     height: 25rem;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
+    padding: 0;
+    margin: 0 auto;
   }
-
   .about-paragraph {
     padding: 5% 10% 0% 10%;
   }

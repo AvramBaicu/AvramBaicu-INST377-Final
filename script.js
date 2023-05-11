@@ -104,7 +104,6 @@ async function mainEvent() {
   localStorage.setItem('storedData',JSON.stringify(storedData));
   const parsedData = localStorage.getItem('storedData');
   let theData = JSON.parse(parsedData)
-  console.log(theData);
 
 //filter 
   async function filterState(data, selectedStateWDropdown, myChart) {
@@ -158,10 +157,10 @@ async function mainEvent() {
     return selectedStateWDropdown;
   };
 
-  dropdown.addEventListener("change", () => {
+  dropdown.addEventListener("change",  () => {
     const selected = getselectedStateWDropdown();
     const fullSelected = getfullselectedStateWDropdown();
-    let ChosenState = filterState(theData, selected, myChart);  
+    let ChosenState = filterState(theData, selected, myChart);
     console.log(ChosenState);
     
     let city = null
@@ -171,7 +170,7 @@ async function mainEvent() {
         }
     }
 
-    getCoordinates(city, fullSelected).then( result => {
+    getCoordinates(city).then( result => {
        x=result;
        if (layer != null){
         layer.remove();
@@ -188,12 +187,11 @@ async function mainEvent() {
     const response = await fetch(`https://api.api-ninjas.com/v1/geocoding?city=${city}&country=US`, {
       method: "GET",
       headers: {
-        'X-Api-Key': '********************************',
+        'X-Api-Key': '*****************************************',
         "Content-Type": "application/json",
       }
     });
     const result = await response.json();
-    console.log("coordinates...", result)
     return result;
   };
 
@@ -257,24 +255,33 @@ async function mainEvent() {
   const refreshBtn = document.getElementById("refreshBtn");
 
   refreshBtn.addEventListener("click", async () => {
-  let layer = initLayer();
-
-  localStorage.clear();
-  const storedData = await getData();
-  localStorage.setItem('storedData',JSON.stringify(storedData));
-  const parsedData = localStorage.getItem('storedData');
-  let theData = JSON.parse(parsedData);
-  console.log(theData);
-  myChart.destroy();
-  dropdown.selectedIndex = 0;
-  if (layer) {
-    layer.remove();
-  }
-  layer = L.marker([38.850033, -95.6500523], 4).addTo(map);
+    localStorage.clear();
+    const storedData = await getData();
+    localStorage.setItem("storedData", JSON.stringify(storedData));
+    const parsedData = localStorage.getItem("storedData");
+    let theData = JSON.parse(parsedData);
   
-  mainEvent();
+    if (myChart) {
+      myChart.destroy();
+    }
+    
+    if (layer) {
+      map.removeLayer(layer);
+    }
   
+    // Recreate only the chart instance
+    myChart = initChart();
+  
+    dropdown.selectedIndex = 0;
+  
+    // Check if layer exists before trying to remove it
+    if (layer) {
+      map.removeLayer(layer);
+    }
+  
+    map.setView([38.850033, -95.6500523], 4);
   });
+  
 }
 document.addEventListener("DOMContentLoaded", async () => mainEvent());
 
